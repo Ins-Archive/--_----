@@ -5,102 +5,131 @@ st.set_page_config(page_title="보험분쟁사례", layout="wide")
 st.markdown(
     """
 <style>
+    html, body, [class*="css"] {
+        font-family: "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+    }
     .stApp {
-        background: linear-gradient(120deg, #b6ebcd 0%, #a7d7f1 35%, #9dc8f0 100%);
+        background: linear-gradient(120deg, #E0F7FA 0%, #B3E5FC 100%);
     }
-    .block-container {
-        max-width: 1220px;
+    .main .block-container {
+        max-width: 1260px;
         padding-top: 1.4rem;
-        padding-bottom: 2rem;
+        padding-bottom: 2.2rem;
+        padding-left: 2.6rem;
+        padding-right: 2.6rem;
     }
-    .top-menu-container {
+
+    .top-nav {
         display: flex;
-        justify-content: space-between;
-        gap: 14px;
-        margin-top: 4px;
-        margin-bottom: 34px;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0.35rem;
+        margin-bottom: 2.4rem;
+        flex-wrap: wrap;
     }
-    .top-menu-item {
-        flex: 1;
-        text-align: center;
-        border: 2px solid #2e4ca5;
+    .top-nav-btn {
+        border: 1.8px solid #2D5CB7;
+        color: #2D5CB7;
         border-radius: 999px;
-        padding: 10px 18px;
-        color: #22429a;
-        background: rgba(255, 255, 255, 0.2);
-        font-size: 1.28rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        background: transparent;
+        padding: 0.65rem 1.5rem;
+        font-size: 1.02rem;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
     }
-    .hero-wrap {
-        padding-top: 34px;
-        padding-left: 8px;
+
+    .hero-left {
+        padding-top: 4.8rem;
+        padding-left: 0.2rem;
+        padding-right: 1rem;
     }
     .hero-title {
         margin: 0;
-        color: #2e45b7;
-        font-size: 5.1rem;
-        font-weight: 900;
-        line-height: 1.06;
-        letter-spacing: -0.04em;
+        color: #111111;
+        font-size: clamp(2.4rem, 4.7vw, 4.8rem);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
     }
     .hero-subtitle {
-        margin-top: 56px;
-        margin-bottom: 32px;
-        color: #334bb6;
-        font-size: 2.16rem;
-        font-weight: 900;
-        letter-spacing: -0.02em;
+        margin-top: 2.5rem;
+        margin-bottom: 1.7rem;
+        color: #164A9E;
+        font-size: clamp(1.05rem, 1.9vw, 2rem);
+        font-weight: 700;
+        letter-spacing: -0.01em;
     }
-    .search-row {
+
+    .search-shell {
+        max-width: 560px;
+        width: 100%;
         display: flex;
         align-items: center;
-        gap: 12px;
-        background: #ffffff;
+        gap: 0.75rem;
         border-radius: 999px;
-        box-shadow: 0 8px 28px rgba(68, 95, 170, 0.16);
-        padding: 12px 18px 12px 20px;
-        max-width: 620px;
+        background: #ffffff;
+        padding: 0.72rem 1.05rem 0.72rem 1.1rem;
+        box-shadow: 0 8px 20px rgba(20, 53, 118, 0.13);
     }
-    .search-left-icon {
-        font-size: 2.25rem;
-        color: #7a869a;
+    .search-icon {
+        color: #808A98;
+        font-size: 1.6rem;
         line-height: 1;
-    }
-    .search-right-dot {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        border: 4px solid #737f90;
         flex-shrink: 0;
     }
-    div[data-testid="stTextInput"] {
+    .search-shell div[data-testid="stTextInput"] {
         width: 100%;
+        margin: 0;
     }
-    div[data-testid="stTextInput"] input {
-        border: none;
-        background: transparent;
-        font-size: 1.88rem;
-        color: #8a8a8a;
-        padding: 0 !important;
-        box-shadow: none !important;
-    }
-    div[data-testid="stTextInput"] input::placeholder {
-        color: #9c9c9c;
-        opacity: 1;
-    }
-    div[data-testid="stTextInput"] > label {
+    .search-shell div[data-testid="stTextInput"] label {
         display: none;
     }
-    .right-visual {
-        margin-top: 16px;
-        padding-right: 8px;
+    .search-shell div[data-testid="stTextInput"] > div {
+        margin: 0;
     }
+    .search-shell div[data-baseweb="input"] {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        min-height: auto !important;
+        padding: 0 !important;
+    }
+    .search-shell input {
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        font-size: 1.25rem !important;
+        color: #5F6B7A !important;
+        padding: 0 !important;
+    }
+    .search-shell input::placeholder {
+        color: #96A0AE !important;
+        opacity: 1;
+    }
+
+    .hero-right {
+        padding-top: 1.2rem;
+        padding-left: 1.2rem;
+        padding-right: 0.4rem;
+    }
+
     @media (max-width: 1024px) {
-        .hero-title { font-size: 4rem; }
-        .hero-subtitle { font-size: 1.8rem; margin-top: 36px; }
-        .top-menu-item { font-size: 1rem; }
-        div[data-testid="stTextInput"] input { font-size: 1.4rem; }
+        .main .block-container {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+        }
+        .hero-left {
+            padding-top: 1.2rem;
+            padding-right: 0;
+        }
+        .hero-subtitle {
+            margin-top: 1.4rem;
+        }
+        .search-shell input {
+            font-size: 1.05rem !important;
+        }
     }
 </style>
 """,
@@ -109,19 +138,19 @@ st.markdown(
 
 st.markdown(
     """
-<div class="top-menu-container">
-    <div class="top-menu-item">민원사례 전부보기</div>
-    <div class="top-menu-item">분쟁사례 전부보기</div>
-    <div class="top-menu-item">보험주요판례 전부보기</div>
+<div class="top-nav">
+    <div class="top-nav-btn">민원사례 전부보기</div>
+    <div class="top-nav-btn">분쟁사례 전부보기</div>
+    <div class="top-nav-btn">보험주요판례 전부보기</div>
 </div>
 """,
     unsafe_allow_html=True,
 )
 
-left_col, right_col = st.columns([1.12, 0.88], gap="small")
+left_col, right_col = st.columns([6, 4], gap="medium")
 
 with left_col:
-    st.markdown('<div class="hero-wrap">', unsafe_allow_html=True)
+    st.markdown('<div class="hero-left">', unsafe_allow_html=True)
     st.markdown(
         '<h1 class="hero-title">보험분쟁사례<br>전부 모았습니다.</h1>',
         unsafe_allow_html=True,
@@ -130,30 +159,17 @@ with left_col:
         '<p class="hero-subtitle">민원사례 * 분쟁사례 * 보험판례</p>',
         unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-<div class="search-row">
-    <div class="search-left-icon">⌕</div>
-""",
-        unsafe_allow_html=True,
-    )
-    search_q = st.text_input("검색", placeholder="키워드 검색", label_visibility="collapsed")
-    st.markdown(
-        """
-    <div class="search-right-dot"></div>
-</div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
+    st.markdown('<div class="search-shell"><span class="search-icon">🔍</span>', unsafe_allow_html=True)
+    search_q = st.text_input("키워드 검색", placeholder="키워드 검색", label_visibility="collapsed")
+    st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right_col:
-    st.markdown('<div class="right-visual">', unsafe_allow_html=True)
+    st.markdown('<div class="hero-right">', unsafe_allow_html=True)
     st.image(
-        "https://img.freepik.com/free-vector/3d-insurance-policy-concept-illustration_23-2148927344.jpg",
+        "https://cdn3d.iconscout.com/3d/premium/thumb/insurance-policy-3d-icon-download-in-png-blend-fbx-gltf-file-formats--secure-protection-document-safety-business-pack-icons-9292352.png",
         use_container_width=True,
     )
     st.markdown("</div>", unsafe_allow_html=True)
 
 if search_q:
-    st.info(f"'{search_q}' 관련 자료를 검색하고 있습니다.")
+    st.info(f"'{search_q}' 키워드로 사례를 검색하고 있습니다.")
