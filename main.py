@@ -156,7 +156,7 @@ with left_col:
 with right_col:
     st.markdown('<div class="hero-right">', unsafe_allow_html=True)
     st.image(
-        r"C:\Users\yunch\.cursor\projects\c-Users-yunch-OneDrive-Desktop\assets\c__Users_yunch_AppData_Roaming_Cursor_User_workspaceStorage_7d881214a54a2549035ecc0fc989534a_images__________-737218a9-d87d-46c1-8ca2-949d9bd5a2b0.png",
+        "hero_image.png",
         use_container_width=True,
     )
     st.markdown("</div>", unsafe_allow_html=True)
