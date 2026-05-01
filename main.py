@@ -62,49 +62,36 @@ st.markdown(
         letter-spacing: -0.01em;
     }
 
-    .search-shell {
+    .hero-search {
         max-width: 560px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        border-radius: 999px;
-        background: #ffffff;
-        padding: 0.72rem 1.05rem 0.72rem 1.1rem;
-        box-shadow: 0 8px 20px rgba(20, 53, 118, 0.13);
     }
-    .search-icon {
-        color: #808A98;
-        font-size: 1.6rem;
-        line-height: 1;
-        flex-shrink: 0;
-    }
-    .search-shell div[data-testid="stTextInput"] {
-        width: 100%;
+    .hero-search div[data-testid="stTextInput"] {
         margin: 0;
     }
-    .search-shell div[data-testid="stTextInput"] label {
+    .hero-search div[data-testid="stTextInput"] > label {
         display: none;
     }
-    .search-shell div[data-testid="stTextInput"] > div {
-        margin: 0;
-    }
-    .search-shell div[data-baseweb="input"] {
+    .hero-search div[data-baseweb="input"] {
         border: none !important;
-        box-shadow: none !important;
-        background: transparent !important;
-        min-height: auto !important;
-        padding: 0 !important;
+        border-radius: 999px !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 8px 20px rgba(20, 53, 118, 0.13) !important;
+        padding-left: 3rem !important;
+        padding-right: 2.1rem !important;
+        background-image: url("https://api.iconify.design/material-symbols/search-rounded.svg?color=%23808A98"), url("https://api.iconify.design/mdi/circle-outline.svg?color=%23808A98");
+        background-repeat: no-repeat, no-repeat;
+        background-size: 1.35rem 1.35rem, 1.1rem 1.1rem;
+        background-position: left 1rem center, right 0.95rem center;
     }
-    .search-shell input {
+    .hero-search input {
         border: none !important;
         box-shadow: none !important;
         background: transparent !important;
         font-size: 1.25rem !important;
         color: #5F6B7A !important;
-        padding: 0 !important;
+        padding: 0.7rem 0 !important;
     }
-    .search-shell input::placeholder {
+    .hero-search input::placeholder {
         color: #96A0AE !important;
         opacity: 1;
     }
@@ -127,7 +114,10 @@ st.markdown(
         .hero-subtitle {
             margin-top: 1.4rem;
         }
-        .search-shell input {
+        .hero-search div[data-baseweb="input"] {
+            padding-left: 2.6rem !important;
+        }
+        .hero-search input {
             font-size: 1.05rem !important;
         }
     }
@@ -159,14 +149,14 @@ with left_col:
         '<p class="hero-subtitle">민원사례 * 분쟁사례 * 보험판례</p>',
         unsafe_allow_html=True,
     )
-    st.markdown('<div class="search-shell"><span class="search-icon">🔍</span>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-search">', unsafe_allow_html=True)
     search_q = st.text_input("키워드 검색", placeholder="키워드 검색", label_visibility="collapsed")
     st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right_col:
     st.markdown('<div class="hero-right">', unsafe_allow_html=True)
     st.image(
-        "https://cdn3d.iconscout.com/3d/premium/thumb/insurance-policy-3d-icon-download-in-png-blend-fbx-gltf-file-formats--secure-protection-document-safety-business-pack-icons-9292352.png",
+        r"C:\Users\yunch\.cursor\projects\c-Users-yunch-OneDrive-Desktop\assets\c__Users_yunch_AppData_Roaming_Cursor_User_workspaceStorage_7d881214a54a2549035ecc0fc989534a_images__________-737218a9-d87d-46c1-8ca2-949d9bd5a2b0.png",
         use_container_width=True,
     )
     st.markdown("</div>", unsafe_allow_html=True)
